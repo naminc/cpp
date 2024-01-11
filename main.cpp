@@ -40,9 +40,24 @@ void XoaPhanTuViTriK(int A[], int &n, int k) {
 	}
 	n--;
 }
+void ChenViTriK(int A[], int &n, int k, int x) {
+	for (int i = n; i > k; i--)
+	{
+		A[i] = A[i - 1];
+	}
+	A[k] = x;
+	n++;
+
+}
+void GiaTriViTriK(int A[], int n, int k) {
+	if (k < 0 || k > n) {
+		return;
+	}
+	cout << "Gia tri cua vi tri thu " << k << " la " << A[k];
+}
 int main(){
 	int A[MAX], n;
-	int k;
+	int k, x;
 	do {
 		cout << "Nhap N: ";
 		cin >> n;
@@ -51,15 +66,28 @@ int main(){
 	NhapMangTuDong(A, n);
 	XuatMang(A, n);
 	cout << endl;
+	/*do {
+		cout << "Nhap vi tri K: ";
+		cin >> k;
+	} while (k < 0 || k >= n);*/
+	/*NhapMang(A, n);*/
+	/*XoaPhanTuViTriK(A, n, k);*/
+	/*do {
+		cout << "Nhap vi tri K: ";
+		cin >> k;
+	} while (k < 0 || k >= n);
+	cout << "Nhap phan tu X: ";
+	cin >> x;
+	ChenViTriK(A, n, k, x);*/
+
 	do {
 		cout << "Nhap vi tri K: ";
 		cin >> k;
 	} while (k < 0 || k >= n);
-	/*NhapMang(A, n);*/
-	XoaPhanTuViTriK(A, n, k);
+	GiaTriViTriK(A, n, k);
+	cout << endl;
 	XuatMang(A, n);
 	cout << endl;
-
 	system("pause");
 }
 
