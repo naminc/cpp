@@ -34,18 +34,29 @@ void NhapMangTuDong(int A[], int n) {
 
 }
 void XoaPhanTuViTriK(int A[], int &n, int k) {
-
-
+	for (int i = k; i < n; i++)
+	{
+		A[i] = A[i + 1];
+	}
+	n--;
 }
 int main(){
 	int A[MAX], n;
+	int k;
 	do {
 		cout << "Nhap N: ";
 		cin >> n;
 	} while (n <= 0);
 	srand(time(NULL));
 	NhapMangTuDong(A, n);
+	XuatMang(A, n);
+	cout << endl;
+	do {
+		cout << "Nhap vi tri K: ";
+		cin >> k;
+	} while (k < 0 || k >= n);
 	/*NhapMang(A, n);*/
+	XoaPhanTuViTriK(A, n, k);
 	XuatMang(A, n);
 	cout << endl;
 
